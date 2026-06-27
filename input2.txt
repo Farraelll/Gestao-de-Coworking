@@ -1,0 +1,149 @@
+# Inicialização do sistema:
+# Preco por hora de cada espaço:
+5
+# Taxa fixa de limpeza:
+10
+# Valor fixo do projetor
+10
+# Valor fixo do monitor extra
+5
+# Cadastro de um cliente:
+1
+4
+Joao
+123
+joao@joao.com
+123
+# Cadastro de outro cliente:
+1
+4
+Maria
+234
+maria@maria.com
+234
+# Cadastro de outro cliente:
+1
+4
+Pedro
+345
+pedro@pedro.com
+345
+# Cadastro de uma sala:
+1
+5
+Sala Azul
+s
+# Cadastro de outra sala:
+1
+5
+Sala Amarela
+n
+# Cadastro de outra sala:
+1
+5
+Sala Verde
+n
+# Cadastro de uma estacao de trabalho:
+1
+6
+Estacao 01
+s
+# Cadastro de outra estacao de trabalho:
+1
+6
+Estacao 02
+n
+# Cadastro de outra estacao de trabalho:
+1
+6
+Estacao 03
+s
+# Reserva de uma sala para o dia 02/02/2026 com projetor:
+2
+4
+s
+s
+2
+2
+2026
+123
+# Reserva de uma sala para a tarde do dia 02/02/2026 com projetor:
+2
+5
+s
+s
+2
+2
+2026
+v
+234
+# Reserva de uma sala para a tarde do dia 02/02/2026 sem projetor:
+2
+5
+s
+n
+2
+2
+2026
+v
+234
+# Reserva de uma sala no dia 02/02/2026 sem projetor de 16:00 as 20:00:
+2
+6
+s
+n
+2
+2
+2026
+16
+0
+20
+0
+345
+# Reserva de uma sala no dia 03/02/2026 com projetor de 08:00 as 10:00:
+2
+6
+s
+s
+3
+2
+2026
+8
+0
+10
+0
+345
+# Reserva de uma estacao de trabalho no dia 02/02/2026 sem monitor extra:
+2
+4
+e
+n
+2
+2
+2026
+123
+# Reserva de uma estacao de trabalho para a manhã do dia 02/02/2026 sem monitor extra:
+2
+5
+e
+n
+2
+2
+2026
+m
+234
+# Ver todas as reservas
+2
+1
+# Ver todas as reservas do dia 02/02/2026
+2
+2
+2
+2
+2026
+# Ver todas as reservas do Pedro
+2
+3
+345
+# Sair do programa
+0

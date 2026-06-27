@@ -19,7 +19,7 @@ public class Entrada {
      */
     public Entrada() {
         try {
-            this.input = new Scanner(new FileInputStream("input2.txt")).useLocale(Locale.US);
+            this.input = new Scanner(new FileInputStream("input.txt")).useLocale(Locale.US);
         } catch (FileNotFoundException e) {
             this.input = new Scanner(System.in).useLocale(Locale.US);
         }
@@ -202,6 +202,12 @@ public class Entrada {
     }
 
     public Sistema criarSistema() {
+        Sistema dados = Persistencia.carregar("dados");
+        if (dados != null) {
+            System.out.println("Dados carregados do arquivo \"dados\".");
+            return dados;
+        }
+
         System.out.println("Iniciando o sistema...");
         double valorHora = this.lerDouble("Digite o valor por hora para usar um espaço: R$ ");
         double taxaLimpeza = this.lerDouble("Digite a taxa de limpeza: R$ ");
