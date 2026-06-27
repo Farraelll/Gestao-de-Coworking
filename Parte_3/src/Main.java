@@ -21,5 +21,6 @@ void main() {
 			op = -1;
 		}
 	}
+	Persistencia.salvar(s, "dados");
 	e.fechar();
 }

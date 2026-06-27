@@ -1,0 +1,143 @@
+# ============================================================
+# input.txt - Arquivo de teste para os tratamentos de erro
+# (try/catch) adicionados ao codigo da Parte_3.
+#
+# Cada bloco abaixo provoca propositalmente uma excecao para
+# verificar se o programa a captura, exibe a mensagem e
+# CONTINUA executando, em vez de quebrar.
+#
+# Excecoes testadas:
+#   - NumberFormatException   (lerInteiro: valor nao-inteiro)
+#   - IllegalArgumentException (Data:  dia/mes/ano invalidos)
+#   - IllegalArgumentException (Horario: hora/minuto invalidos)
+# ============================================================
+
+# ===== Inicializacao do sistema =====
+# (valores VALIDOS de proposito: criarSistema() roda FORA do
+#  try/catch, entao um erro aqui derrubaria o programa)
+# valor por hora:
+5
+# taxa de limpeza:
+10
+# valor extra do projetor:
+10
+# valor do monitor extra:
+5
+
+# ===== Setup: cadastrar um cliente e uma sala validos =====
+# (necessarios para o teste de recuperacao no final)
+1
+4
+Joao
+123
+joao@joao.com
+123
+1
+5
+Sala Azul
+s
+
+# ============================================================
+# TESTE 1: valor nao-inteiro no menu principal
+# Esperado: NumberFormatException -> "Erro: 'abc' nao e um
+# numero inteiro valido." e o programa continua.
+# ============================================================
+abc
+
+# ============================================================
+# TESTE 2: valor nao-inteiro no submenu de Cadastros
+# Entra em "1) Cadastros" e digita um texto onde deveria ser
+# um numero de opcao.
+# Esperado: NumberFormatException, programa continua.
+# ============================================================
+1
+xyz
+
+# ============================================================
+# TESTE 3: DIA invalido ao fazer reserva (dia inteiro)
+# 2) Reservas -> 4) Fazer reserva (dia inteiro)
+# tipo=s, projetor=n, dia=40 (invalido)
+# Esperado: IllegalArgumentException "Dia invalido: 40 ..."
+# (mes/ano nao chegam a ser lidos, por isso nao aparecem aqui)
+# ============================================================
+2
+4
+s
+n
+40
+
+# ============================================================
+# TESTE 4: MES invalido ao fazer reserva (dia inteiro)
+# tipo=s, projetor=n, dia=10, mes=13 (invalido)
+# Esperado: IllegalArgumentException "Mes invalido: 13 ..."
+# ============================================================
+2
+4
+s
+n
+10
+13
+
+# ============================================================
+# TESTE 5: ANO invalido ao fazer reserva (dia inteiro)
+# tipo=s, projetor=n, dia=10, mes=10, ano=0 (invalido)
+# Esperado: IllegalArgumentException "Ano invalido: 0 ..."
+# ============================================================
+2
+4
+s
+n
+10
+10
+0
+
+# ============================================================
+# TESTE 6: HORA invalida ao fazer reserva (horario especifico)
+# 2) Reservas -> 6) Fazer reserva (horario especifico)
+# tipo=s, projetor=n, data=02/02/2026, hora inicio=25 (invalida)
+# Esperado: IllegalArgumentException "Hora invalida: 25 ..."
+# ============================================================
+2
+6
+s
+n
+2
+2
+2026
+25
+
+# ============================================================
+# TESTE 7: MINUTO invalido ao fazer reserva (horario especifico)
+# tipo=s, projetor=n, data=02/02/2026, hora=10, minuto=70 (invalido)
+# Esperado: IllegalArgumentException "Minuto invalido: 70 ..."
+# ============================================================
+2
+6
+s
+n
+2
+2
+2026
+10
+70
+
+# ============================================================
+# TESTE 8: RECUPERACAO - operacao valida apos todos os erros
+# Mostra que o programa continua funcionando normalmente.
+# Reserva valida da Sala Azul (com projetor) p/ 02/02/2026, cliente 123.
+# ============================================================
+2
+4
+s
+s
+2
+2
+2026
+123
+
+# ===== Ver todas as reservas (confirma que a reserva valida ocorreu) =====
+2
+1
+
+# ===== Sair do programa =====
+0
