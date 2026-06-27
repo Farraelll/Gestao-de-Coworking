@@ -11,6 +11,9 @@ public class Horario {
     }
 
     public void setHora(int hora) {
+        if (hora < 0 || hora > 23) {
+            throw new IllegalArgumentException("Hora inválida: " + hora + " (deve estar entre 0 e 23).");
+        }
         this.hora = hora;
     }
 
@@ -19,6 +22,9 @@ public class Horario {
     }
 
     public void setMin(int min) {
+        if (min < 0 || min > 59) {
+            throw new IllegalArgumentException("Minuto inválido: " + min + " (deve estar entre 0 e 59).");
+        }
         this.min = min;
     }
 

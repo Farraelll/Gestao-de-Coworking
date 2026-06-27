@@ -1,10 +1,10 @@
 public class Reserva {
     private Data d;
     private Horario inicio, fim;
-    private Espaco esp;
+    private Reservavel esp;
     private Cliente cli;
 
-    public Reserva(Data d, Horario inicio, Horario fim, Espaco esp, Cliente cli) {
+    public Reserva(Data d, Horario inicio, Horario fim, Reservavel esp, Cliente cli) {
         this.setData(d);
         this.setInicio(inicio);
         this.setFim(fim);
@@ -36,11 +36,11 @@ public class Reserva {
         this.fim = fim;
     }
 
-    public Espaco getEspaco() {
+    public Reservavel getEspaco() {
         return esp;
     }
 
-    public void setEspaco(Espaco esp) {
+    public void setEspaco(Reservavel esp) {
         this.esp = esp;
     }
 

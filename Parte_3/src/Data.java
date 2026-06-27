@@ -12,6 +12,9 @@ public class Data {
     }
 
     public void setDia(int dia) {
+        if (dia < 1 || dia > 31) {
+            throw new IllegalArgumentException("Dia inválido: " + dia + " (deve estar entre 1 e 31).");
+        }
         this.dia = dia;
     }
 
@@ -20,6 +23,9 @@ public class Data {
     }
 
     public void setMes(int mes) {
+        if (mes < 1 || mes > 12) {
+            throw new IllegalArgumentException("Mês inválido: " + mes + " (deve estar entre 1 e 12).");
+        }
         this.mes = mes;
     }
 
@@ -28,6 +34,9 @@ public class Data {
     }
 
     public void setAno(int ano) {
+        if (ano < 1) {
+            throw new IllegalArgumentException("Ano inválido: " + ano + " (deve ser maior que 0).");
+        }
         this.ano = ano;
     }
 

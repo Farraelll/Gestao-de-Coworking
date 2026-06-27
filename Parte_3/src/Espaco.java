@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Espaco {
+public abstract class Espaco implements Reservavel{
     protected String descricao;
     protected static double valorHora, taxaLimpeza;
     protected ArrayList<Reserva> reservas;
