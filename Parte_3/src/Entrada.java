@@ -35,12 +35,20 @@ public class Entrada {
 	
     public int lerInteiro(String msg) {
         String linha = this.lerLinha(msg);
-        return Integer.parseInt(linha);
+        try {
+            return Integer.parseInt(linha.trim());
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("'" + linha + "' não é um número inteiro válido.");
+        }
     }
-	
+
     private double lerDouble(String msg) {
         String linha = this.lerLinha(msg);
-        return Double.parseDouble(linha);
+        try {
+            return Double.parseDouble(linha.trim());
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("'" + linha + "' não é um número válido.");
+        }
     }
 	
     public Data lerData(Sistema s) {
@@ -220,14 +228,14 @@ public class Entrada {
 
     public void listarSalas(Sistema s) {
         System.out.println("*********************************");
-        ArrayList<Espaco> salas = s.getSalas();
+        ArrayList<Reservavel> salas = s.getSalas();
 
         if (salas.isEmpty()) {
             System.out.println("Nenhuma sala cadastrada.");
         }
         else {
             System.out.println("Salas cadastradas:");
-            for (Espaco sala : salas) {
+            for (Reservavel sala : salas) {
                 System.out.println(sala);
             }
         }
@@ -235,14 +243,14 @@ public class Entrada {
 
     public void listarEstacoes(Sistema s) {
         System.out.println("*********************************");
-        ArrayList<Espaco> estacoes = s.getEstacoes();
+        ArrayList<Reservavel> estacoes = s.getEstacoes();
 
         if (estacoes.isEmpty()) {
             System.out.println("Nenhuma estação de trabalho cadastrada.");
         }
         else {
             System.out.println("Estações de Trabalho cadastradas:");
-            for (Espaco e : estacoes) {
+            for (Reservavel e : estacoes) {
                 System.out.println(e);
             }
         }

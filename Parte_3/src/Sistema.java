@@ -4,8 +4,8 @@ import java.util.LinkedHashMap;
 
 public class Sistema {
     private LinkedHashMap<String, Cliente> clientes;
-    private ArrayList<Espaco> salas;
-    private ArrayList<Espaco> estacoes;
+    private ArrayList<Reservavel> salas;
+    private ArrayList<Reservavel> estacoes;
     private double valorHora, taxaLimpeza, precoProjetor, precoMonitor;
 
     public Sistema(double valorHora, double taxaLimpeza, double precoProjetor, double precoMonitor) {
@@ -38,11 +38,11 @@ public class Sistema {
         return clientes.values();
     }
 
-    public ArrayList<Espaco> getSalas() {
+    public ArrayList<Reservavel> getSalas() {
         return salas;
     }
 
-    public ArrayList<Espaco> getEstacoes() {
+    public ArrayList<Reservavel> getEstacoes() {
         return estacoes;
     }
 
@@ -65,11 +65,11 @@ public class Sistema {
     public boolean reservar(String tipo, Data d, Horario inicio, Horario fim, Cliente c, boolean extra) {
         if (c == null) return false;
 
-        ArrayList<Espaco> lista;
+        ArrayList<Reservavel> lista;
         if (tipo.equalsIgnoreCase("s")) lista = this.salas;
         else lista = this.estacoes;
 
-        for (Espaco e : lista) {
+        for (Reservavel e : lista) {
             if (e.disponivel(d, inicio, fim, extra)) {
                 Reserva r = new Reserva(d, inicio, fim, e, c);
                 e.adicionarReserva(r);
@@ -110,8 +110,8 @@ public class Sistema {
 
     public ArrayList<Reserva> getReservas() {
         ArrayList<Reserva> todas = new ArrayList<>();
-        for (Espaco e : this.salas) todas.addAll(e.getReservas());
-        for (Espaco e : this.estacoes) todas.addAll(e.getReservas());
+        for (Reservavel e : this.salas) todas.addAll(e.getReservas());
+        for (Reservavel e : this.estacoes) todas.addAll(e.getReservas());
         return todas;
     }
 
